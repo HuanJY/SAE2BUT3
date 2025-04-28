@@ -1,0 +1,7 @@
+Flask
+Flask_CORS
+Flask_SQLAlchemy
+bcrypt
+PyJWT
+streamlit
+requests
