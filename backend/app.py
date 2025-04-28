@@ -13,6 +13,10 @@ db.init_app(app)
 app.register_blueprint(routes_bp)
 
 if __name__ == '__main__':
+    from llm import embedding_model
+    from llm_download_pdfs import download_all_pdfs
+    
     with app.app_context():
         db.create_all()
-    app.run(port=5000, debug=True)
+        download_all_pdfs(embedding_model) # safe à cet endroit
+    app.run(port=5000, debug=True, use_reloader=False)

@@ -33,3 +33,4 @@ class Message(db.Model):
     is_user = db.Column(db.Boolean, nullable=False)
     create_time = db.Column(db.DateTime, default=datetime.now(timezone.utc))
     chat_id = db.Column(db.Integer, db.ForeignKey('chat.chat_id'), nullable=False)
+    context = db.Column(db.String(2000), nullable=True) # Only the "assistant" role uses this field

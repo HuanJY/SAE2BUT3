@@ -2,6 +2,8 @@ from flask import Blueprint, request, jsonify
 from models import db, User, Chat, Message
 import bcrypt
 from utils import generate_token, verify_token
+from llm import obtenir_reponse 
+#from llm2 import obtenir_reponse
 
 bp = Blueprint('routes', __name__)
 
@@ -116,18 +118,15 @@ def create_message(chat_id):
     if not content:
         return jsonify({'error': 'Le contenu du message est requis'}), 400
     
-    is_user = data.get('is_user')
-    if is_user is None:
-        return jsonify({'error': 'is_user est requis'}), 400
-    if not isinstance(is_user, bool):
-        return jsonify({'error': 'is_user doit être un booléen'}), 400
-
-    message = Message(content=content, chat_id=chat_id, is_user=is_user)
-    full_response = f"Tu as dit : {content}"
-    response = Message(content=full_response, chat_id=chat_id, is_user=False)
-    
+    message = Message(content=content, chat_id=chat_id, is_user=True)
     db.session.add(message)
-    db.session.add(response)
     db.session.commit()
-
-    return jsonify({'message_id': response.message_id, 'content': response.content, 'is_user': response.is_user, 'create_time': response.create_time}), 201
+    
+    
+    response = obtenir_reponse(content, chat)  # new llm.py
+    print(response)
+    
+    #return jsonify({'message_id': message.message_id, 'content': message.content, 'create_time': message.create_time}), 201
+    #return jsonify({'content': response}), 201
+    return jsonify({'message_id': response["message_id"], 'content': response["content"], 'is_user': response["is_user"], 'create_time': response["create_time"]}), 201
+    
