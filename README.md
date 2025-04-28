@@ -19,7 +19,7 @@ Les embeddings ChromaDB sont déjà fournis.
 **Windows :**
 
 - Lancer `create venv.bat` (la première fois uniquement)
-- Lancer `open venv.bat` 2 fois
+- Attendre que la création du venv soit terminé. Lancer `open venv.bat` 2 fois
   - Dans la première fenêtre, faire : 
     - `cd backend`
     - `py app.py`
@@ -27,3 +27,6 @@ Les embeddings ChromaDB sont déjà fournis.
     - `cd frontend`
     - `streamlit run EcoChatbot.py`
 
+**Linux :**
+
+Instructions à venir
