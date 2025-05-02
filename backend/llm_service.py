@@ -18,7 +18,7 @@ def generate_answer(question: str, chat, top_k: int = 3) -> Message:
         "CONTEXTE (documents internes) :\n"
         f"{context}\n\n"
         f"Question : {question}\n\n"
-        "Réponds de façon claire, en français et cite les sources si besoin."
+         "Utilise UNIQUEMENT les éléments de CONTEXTE suivants pour répondre à la question finale. Veuille à suivre les règles suivantes :\n 1. Si tu trouves la réponse, rédige-la de manière semi-longue, en une dixaine de phrases maximum.\n 2. Tes seules connaissances sont le contexte donné. Si tu ne trouves pas la réponse UNIQUEMENT dans le CONTEXTE qui t'es donné, dis simplement : « Je n'arrive pas à trouver de réponse finale, car je n'ai pas connaissance de ce sujet. », et ne dis rien d'autre après.\n 3. Ce n'est pas grave si tu trouves pas la réponse."
     )
 
     # 3. appel LLM (Mistral 7B via DeepInfra)
@@ -27,7 +27,7 @@ def generate_answer(question: str, chat, top_k: int = 3) -> Message:
         messages=[{"role": "user", "content": prompt}],
     ).choices[0].message.content
 
-    # 4. persiste la réponse
+    # 4. persiste la réponse/sauv en bdd
     msg = Message(chat_id=chat.chat_id, content=answer, is_user=False,
                   context=context)
     db.session.add(msg)
