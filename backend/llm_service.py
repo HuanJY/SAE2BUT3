@@ -25,6 +25,9 @@ def generate_answer(question: str, chat, top_k: int = 3) -> Message:
     answer = client.chat.completions.create(
         model="mistralai/Mistral-7B-Instruct-v0.3",
         messages=[{"role": "user", "content": prompt}],
+        max_tokens=140,             
+        temperature=0.7,
+        stream=False  
     ).choices[0].message.content
 
     # 4. persiste la réponse/sauv en bdd
