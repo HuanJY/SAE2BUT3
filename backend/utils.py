@@ -21,6 +21,7 @@ import requests
 
 #API_URL = "https://api-inference.huggingface.co/pipeline/feature-extraction/sentence-transformers/all-mpnet-base-v2"
 
+"""
 def query_embedding(texts):
     if Config.HUGGINGFACEHUB_API_TOKEN and Config.EMBEDDINGS_USE == "huggingface":
         API_URL = "https://api-inference.huggingface.co/pipeline/feature-extraction/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2"
@@ -41,5 +42,5 @@ class HFAPIEmbeddingFunction:
 
     def embed_query(self, text):
         return query_embedding([text])[0]
-
+"""
 
