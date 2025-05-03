@@ -3,7 +3,6 @@ from flask_cors import CORS
 from models import db
 from config import Config
 from routes import bp as routes_bp
-from llm_download_pdfs2 import download_all_pdfs
 
 app = Flask(__name__)
 app.config.from_object(Config)
