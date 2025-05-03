@@ -1,7 +1,5 @@
 import streamlit as st
 
-import streamlit as st
-
 def home():
     st.markdown("# Accueil")
     st.markdown("### Bienvenue sur **EcoChatBot**")
