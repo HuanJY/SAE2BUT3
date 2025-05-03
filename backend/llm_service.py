@@ -50,7 +50,7 @@ def generate_answer(question: str, chat, top_k: int = -1) -> Message:
 
     new_message = {
         "role": "user",
-        "content": f"CONTEXTE: {context}\n\nQuestion: {question}\n\nRéponse utile:"
+        "content": f"CONTEXTE:\n---\n{context}\n---\nQuestion: D'après le CONTEXTE UNIQUEMENT, {question}\n---\nRéponse utile:"
     }
     messages.append(new_message)
     if Config.DEBUG_PRINT: print(f"Messages: {messages}")
