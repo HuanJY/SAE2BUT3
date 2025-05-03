@@ -13,8 +13,10 @@ db.init_app(app)
 app.register_blueprint(routes_bp)
 
 if __name__ == '__main__':
-    from llm import embedding_model
-    from llm_download_pdfs import download_all_pdfs
+    #from llm import embedding_model
+    #from llm_download_pdfs import download_all_pdfs
+    from vector_store import embedding_model
+    from llm_download_pdfs2 import download_all_pdfs
     
     with app.app_context():
         db.create_all()

@@ -104,10 +104,10 @@ def load_all_pdfs(embedding_model):
         return
 
     # découpe les documents avec RecursiveCharacterTextSplitter (qu'on a vu en cours)
-    splitter = RecursiveCharacterTextSplitter(chunk_size=512, chunk_overlap=51)
+    splitter = RecursiveCharacterTextSplitter(chunk_size=Config.SPLITTER_CHUNK_SIZE, chunk_overlap=Config.SPLITTER_CHUNK_SIZE // 10)
     chunks   = splitter.split_documents(new_docs)
 
-    # on index avec faiss vian langchain
+    # on index avec faiss via langchain
     if vs is None:
         vs = LangchainFAISS.from_documents(
             chunks,
