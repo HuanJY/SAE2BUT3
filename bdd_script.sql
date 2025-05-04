@@ -54,8 +54,8 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `sae_economy_db`.`message` (
   `message_id` INT NOT NULL AUTO_INCREMENT,
-  `context` VARCHAR(2000) NULL,
-  `content` VARCHAR(2000) NOT NULL,
+  `context` VARCHAR(5000) NULL,
+  `content` VARCHAR(5000) NOT NULL,
   `is_user` TINYINT NOT NULL,
   `create_time` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
   `chat_id` INT NOT NULL,
