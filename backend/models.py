@@ -29,8 +29,8 @@ class Message(db.Model):
     __tablename__ = 'message'
 
     message_id = db.Column(db.Integer, primary_key=True)
-    content = db.Column(db.String(2000), nullable=False)
+    content = db.Column(db.String(5000), nullable=False)
     is_user = db.Column(db.Boolean, nullable=False)
     create_time = db.Column(db.DateTime, default=datetime.now(timezone.utc))
     chat_id = db.Column(db.Integer, db.ForeignKey('chat.chat_id'), nullable=False)
-    context = db.Column(db.String(2000), nullable=True) # Only the "assistant" role uses this field
+    context = db.Column(db.String(5000), nullable=True) # Only the "assistant" role uses this field
