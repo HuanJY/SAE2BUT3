@@ -19,7 +19,8 @@ Les embeddings ChromaDB sont déjà fournis.
 **Windows :**
 
 - Lancer `create venv.bat` (la première fois uniquement)
-- Attendre que la création du venv soit terminé. Lancer `open venv.bat` 2 fois
+  - Attendre que la création du venv soit terminé. Puis lancer `open venv.bat` et run `pip install -r requirements.txt`
+- Lancer `open venv.bat` 2 fois
   - Dans la première fenêtre, faire : 
     - `cd backend`
     - `py app.py`
